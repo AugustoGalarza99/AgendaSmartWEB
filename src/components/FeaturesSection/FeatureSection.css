@@ -1,0 +1,128 @@
+/* Contenedor principal */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    gap: 30px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Sección de la imagen */
+  .features-image {
+    flex: 1;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeInLeft 1.5s ease;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Contenido de las características */
+  .features-content {
+    flex: 2;
+    max-width: 600px;
+    animation: fadeInRight 1.5s ease;
+  }
+  
+  .features-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .features-description {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  .features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    animation: fadeInUp 1.2s ease;
+  }
+  
+  .icon {
+    font-size: 2rem;
+    color: #007bff;
+    flex-shrink: 0;
+  }
+  
+  .feature-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .feature-text {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  /* Animaciones */
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .features {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .features-content {
+      max-width: 100%;
+    }
+  
+    .features-image {
+      max-width: 100%;
+    }
+  }
+  

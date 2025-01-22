@@ -1,0 +1,55 @@
+/* General Styles */
+.info-cards {
+    display: flex;
+    flex-wrap: wrap; /* Responsivo */
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    flex: 1;
+    max-width: 300px;
+    min-width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center; /* Alinea el texto e ícono en el mismo nivel */
+    justify-content: center;
+    gap: 10px; /* Espaciado entre el ícono y el texto */
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  .icon {
+    font-size: 1.8rem; /* Tamaño del ícono */
+    color: #007bff;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .card {
+      max-width: 100%;
+    }
+  }
+  
