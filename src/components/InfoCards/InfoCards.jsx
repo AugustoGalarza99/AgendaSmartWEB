@@ -4,7 +4,7 @@ import "./InfoCards.css";
 
 function InfoCards() {
   return (
-    <div className="info-cards">
+    <div className="info-cards" id="cards">
       <div className="card">
         <h3 className="card-title">
           <FaCheckCircle className="icon" /> Simple

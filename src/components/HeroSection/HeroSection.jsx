@@ -4,7 +4,7 @@ import agendaImage from "../../assets/1.png"; // Asegúrate de colocar tu imagen
 
 function HeroSection() {
   return (
-    <div className="hero-section">
+    <div className="hero-section" id="home">
       <div className="hero-content">
         <h1 className="hero-title">
           Organiza tu día <span>de manera inteligente</span>

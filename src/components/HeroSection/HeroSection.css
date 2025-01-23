@@ -4,9 +4,9 @@
     flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
     justify-content: center;
     align-items: center;
-    padding: 50px 20px;
-    background: linear-gradient(135deg, #007bff, #0056b3);
+    background: linear-gradient(180deg, #554af3,#485f92,#dec0f1);
     color: white;
+    height: 100vh;
   }
   
   .hero-content {

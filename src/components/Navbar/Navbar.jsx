@@ -1,0 +1,89 @@
+import React, { useState } from "react";
+import { Link } from "react-scroll";
+import "./Navbar.css";
+import { FaBars, FaTimes } from "react-icons/fa";
+
+function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleLinkClick = () => {
+    if (window.innerWidth <= 768) {
+      // Solo cierra el menú si está en modo móvil
+      setIsOpen(false);
+    }
+  };
+
+  return (
+    <nav className="navbar">
+      <div className="navbar-container">
+        <h1 className="navbar-logo">AgendaSmart</h1>
+        <div className="menu-icon" onClick={toggleMenu}>
+          {isOpen ? <FaTimes className="icon" /> : <FaBars className="icon" />}
+        </div>
+        <ul className={isOpen ? "nav-menu active" : "nav-menu"}>
+          <li className="nav-item">
+            <Link
+              to="home"
+              smooth={true}
+              duration={500}
+              offset={-70}
+              onClick={handleLinkClick} // Se cierra solo en móvil
+            >
+              Inicio
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="features"
+              smooth={true}
+              duration={500}
+              offset={-70}
+              onClick={handleLinkClick}
+            >
+              Características
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="plans"
+              smooth={true}
+              duration={500}
+              offset={-70}
+              onClick={handleLinkClick}
+            >
+              Planes
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="faq"
+              smooth={true}
+              duration={500}
+              offset={-70}
+              onClick={handleLinkClick}
+            >
+              Preguntas Frecuentes
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="contact"
+              smooth={true}
+              duration={500}
+              offset={-70}
+              onClick={handleLinkClick}
+            >
+              Contacto
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+}
+
+export default Navbar;

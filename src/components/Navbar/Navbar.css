@@ -1,0 +1,95 @@
+/* Contenedor general del navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #007bff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  /* Contenido del navbar */
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+  }
+  
+  /* Logo */
+  .navbar-logo {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Menú de navegación */
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-menu.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #007bff;
+    width: 100%;
+    height: calc(100vh - 70px);
+    align-items: center;
+    justify-content: center;
+    transform: translateY(0);
+  }
+  
+  .nav-menu li {
+    margin: 10px 0;
+  }
+  
+  /* Enlaces */
+  .nav-item a {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-item a:hover {
+    color: #cce4ff;
+  }
+  
+  /* Ícono del menú (para móvil) */
+  .menu-icon {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .icon {
+    color: #fff;
+    font-size: 1.8rem;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .menu-icon {
+      display: block;
+    }
+  
+    .nav-menu {
+      display: none;
+      transform: translateY(-100%);
+    }
+  }
+  

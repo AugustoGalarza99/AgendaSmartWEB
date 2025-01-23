@@ -5,7 +5,7 @@ import "./FeatureSection.css";
 
 function Features() {
   return (
-    <div className="features">
+    <div className="features" id="features">
       {/* Imagen de la App */}
       <div className="features-image">
         <img

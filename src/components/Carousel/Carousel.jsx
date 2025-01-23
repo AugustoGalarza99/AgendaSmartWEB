@@ -42,7 +42,7 @@ function Carousel() {
   };
 
   return (
-    <div className="carousel-container">
+    <div className="carousel-container" id="carousel">
       <h2 className="carousel-title">Explora nuestra App</h2>
       <Slider {...settings}>
         <div className="carousel-slide">
