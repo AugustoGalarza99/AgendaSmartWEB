@@ -5,7 +5,7 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 
 function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer" id="footer">
       <div className="footer-container">
         {/* Sección de información */}
         <div className="footer-info">
@@ -21,15 +21,15 @@ function Footer() {
           <ul className="footer-contact-list">
             <li>
               <HiOutlineLocationMarker className="footer-icon" />
-              <span>Calle Principal 123, Ciudad, País</span>
+              <span>Oncativo, Cordoba, Argentina</span>
             </li>
             <li>
               <FaWhatsapp className="footer-icon" />
-              <span>+123 456 7890</span>
+              <span>+54 9 3572 674920</span>
             </li>
             <li>
               <FaEnvelope className="footer-icon" />
-              <span>contacto@agendasmart.com</span>
+              <span>agendasmartapp@gmail.com</span>
             </li>
           </ul>
         </div>

@@ -49,13 +49,13 @@ function Navbar() {
           </li>
           <li className="nav-item">
             <Link
-              to="plans"
+              to="carousel"
               smooth={true}
               duration={500}
               offset={-70}
               onClick={handleLinkClick}
             >
-              Planes
+              Nuesta App
             </Link>
           </li>
           <li className="nav-item">
@@ -71,7 +71,19 @@ function Navbar() {
           </li>
           <li className="nav-item">
             <Link
-              to="contact"
+              to="plans"
+              smooth={true}
+              duration={500}
+              offset={-70}
+              onClick={handleLinkClick}
+            >
+              Planes
+            </Link>
+          </li>
+          
+          <li className="nav-item">
+            <Link
+              to="footer"
               smooth={true}
               duration={500}
               offset={-70}
