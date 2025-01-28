@@ -1,7 +1,7 @@
 /* Contenedor principal */
 .faq-container {
     padding: 50px 20px;
-    max-width: 800px;
+    width: 60%;
     margin: 0 auto;
     background-color: #f9f9f9;
     border-radius: 10px;
@@ -17,12 +17,30 @@
     margin-bottom: 30px;
     font-weight: bold;
   }
+
+  /* Contenedor principal para imagen y lista */
+.faq-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+/* Imagen de la izquierda */
+.faq-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
   
   /* Lista de preguntas frecuentes */
   .faq-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    width: 60%;
   }
   
   /* Cada ítem de FAQ */

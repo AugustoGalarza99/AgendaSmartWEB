@@ -7,8 +7,6 @@
     height: 70px;
     background-color: #007bff;
     display: flex;
-    justify-content: center;
-    align-items: center;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -19,8 +17,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
-    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto; /* Centra el contenido */
+  }
+
+  .logo{
+    flex: 1; /* Esto asegura que el logo ocupe el espacio a la izquierda */
   }
   
   /* Logo */
@@ -29,6 +31,14 @@
     font-size: 1.8rem;
     font-weight: bold;
     cursor: pointer;
+    margin-left: 30px;
+  }
+
+  .navegable {
+    display: flex;
+    flex-grow: 1; /* Asegura que el menú ocupe el espacio restante */
+    justify-content: flex-end; /* Alinea el menú a la derecha */
+    margin-right: 30px;
   }
   
   /* Menú de navegación */
@@ -74,6 +84,7 @@
   .menu-icon {
     display: none;
     cursor: pointer;
+    margin-left: auto; /* Alinea el icono a la derecha */
   }
   
   .icon {
@@ -85,6 +96,11 @@
   @media (max-width: 768px) {
     .menu-icon {
       display: block;
+    }
+
+      /* Oculta el menú de navegación en dispositivos móviles cuando no está activo */
+    .navegable {
+      display: none; /* Oculta la sección del menú cuando el menú está abierto */
     }
   
     .nav-menu {

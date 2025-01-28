@@ -1,47 +1,87 @@
 import React from "react";
+import { FaCaretRight } from "react-icons/fa";
+import { FaCheck, FaTimes } from "react-icons/fa"; // Agregamos los íconos de check y times
 import "./Plans.css";
 
 function Plans() {
   const plans = [
     {
-      title: "Plan Básico",
-      price: "$9.99 / mes",
+      title: "Plan Nivel 1",
+      price: "$7.0000 / mes",
       features: [
-        "Gestión de citas ilimitadas",
-        "Notificaciones por correo electrónico",
-        "Soporte básico",
+        { name: "Agenda digital", included: true },
+        { name: "Turnos ilimitados", included: true },
+        { name: "Servicios ilimitados", included: true },
+        { name: "Configuracion de horarios", included: true },
+        { name: "Recordatorios via Whatsapp", included: true },
+        { name: "Reprogramacion de turnos", included: true },
+        { name: "Link personalizado con el nombre de tu negocio", included: true },
+        { name: "Soporte y mantenimiento de la APP", included: true },
+        { name: "Consulta en tiempo real de la demora", included: false },
+        { name: "Centro de control", included: false },
+        { name: "Modulo de finanzas y turnos", included: false },
+        { name: "Catalogo de productos", included: false },
+        { name: "Consultoria profesional", included: false },
       ],
       buttonText: "Elegir Plan",
     },
     {
-      title: "Plan Pro",
-      price: "$19.99 / mes",
+      title: "Plan Nivel 2",
+      price: "$10.000 / mes",
       features: [
-        "Todas las funciones del Plan Básico",
-        "Recordatorios SMS",
-        "Integración con calendario externo",
-        "Soporte prioritario",
+        { name: "Agenda digital", included: true },
+        { name: "Turnos ilimitados", included: true },
+        { name: "Servicios ilimitados", included: true },
+        { name: "Configuracion de horarios", included: true },
+        { name: "Recordatorios via Whatsapp", included: true },
+        { name: "Reprogramacion de turnos", included: true },
+        { name: "Link personalizado con el nombre de tu negocio", included: true },
+        { name: "Soporte y mantenimiento de la APP", included: true },
+        { name: "Consulta en tiempo real de la demora", included: true },
+        { name: "Centro de control", included: false },
+        { name: "Modulo de finanzas y turnos", included: false },
+        { name: "Catalogo de productos", included: false },
+        { name: "Consultoria profesional", included: false },
       ],
       buttonText: "Elegir Plan",
     },
     {
-      title: "Plan Empresarial",
-      price: "$49.99 / mes",
+      title: "Plan Nivel 3",
+      price: "$13.000 / mes",
       features: [
-        "Todo incluido en Plan Pro",
-        "Múltiples usuarios",
-        "Análisis y reportes avanzados",
-        "Soporte dedicado 24/7",
+        { name: "Agenda digital", included: true },
+        { name: "Turnos ilimitados", included: true },
+        { name: "Servicios ilimitados", included: true },
+        { name: "Configuracion de horarios", included: true },
+        { name: "Recordatorios via Whatsapp", included: true },
+        { name: "Reprogramacion de turnos", included: true },
+        { name: "Link personalizado con el nombre de tu negocio", included: true },
+        { name: "Soporte y mantenimiento de la APP", included: true },
+        { name: "Consulta en tiempo real de la demora", included: true },
+        { name: "Centro de control", included: true },
+        { name: "Modulo de finanzas y turnos", included: true },
+        { name: "Catalogo de productos", included: false },
+        { name: "Consultoria profesional", included: false },
       ],
       buttonText: "Elegir Plan",
     },
     {
-      title: "Plan Personalizado",
-      price: "A medida",
+      title: "Plan Nivel 4",
+      price: "Consultar",
       features: [
-        "Soluciones adaptadas a tus necesidades",
-        "Desarrollo personalizado",
-        "Consultoría profesional",
+        { name: "Agenda digital", included: true },
+        { name: "Turnos ilimitados", included: true },
+        { name: "Servicios ilimitados", included: true },
+        { name: "Configuracion de horarios", included: true },
+        { name: "Recordatorios via Whatsapp", included: true },
+        { name: "Reprogramacion de turnos", included: true },
+        { name: "Link personalizado con el nombre de tu negocio", included: true },
+        { name: "Soporte y mantenimiento de la APP", included: true },
+        { name: "Consulta en tiempo real de la demora", included: true },
+        { name: "Centro de control", included: true },
+        { name: "Modulo de finanzas y turnos", included: true },
+        { name: "Catalogo de productos", included: true },
+        { name: "Consultoria profesional", included: true },
       ],
       buttonText: "Contactar",
     },
@@ -58,7 +98,17 @@ function Plans() {
             <ul className="plan-features">
               {plan.features.map((feature, idx) => (
                 <li key={idx} className="plan-feature">
-                  {feature}
+                  {feature.included ? (
+                    <>
+                      <FaCheck className="check-icon" />
+                      {feature.name}
+                    </>
+                  ) : (
+                    <>
+                      <FaTimes className="times-icon" />
+                      <span className="strikethrough">{feature.name}</span>
+                    </>
+                  )}
                 </li>
               ))}
             </ul>

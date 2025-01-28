@@ -1,11 +1,11 @@
 /* Contenedor general */
 .plans-container {
     padding: 50px 20px;
-    max-width: 1200px;
+    width: 90%;
     margin: 0 auto;
     text-align: center;
   }
-  
+
   /* Título */
   .plans-title {
     font-size: 2.5rem;
@@ -13,26 +13,26 @@
     margin-bottom: 30px;
     font-weight: bold;
   }
-  
+
   /* Grid de las tarjetas */
   .plans-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
   }
-  
+
   @media (max-width: 1024px) {
     .plans-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  
+
   @media (max-width: 768px) {
     .plans-grid {
       grid-template-columns: 1fr;
     }
   }
-  
+
   /* Tarjeta individual */
   .plan-card {
     background-color: #fff;
@@ -41,13 +41,17 @@
     padding: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Hacemos que los elementos estén en columna */
+    justify-content: space-between; /* Hace que el contenido se distribuya a lo largo de la tarjeta */
+    height: 100%;
   }
-  
+
   .plan-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
-  
+
   /* Título del plan */
   .plan-title {
     font-size: 1.5rem;
@@ -55,21 +59,22 @@
     margin-bottom: 10px;
     font-weight: bold;
   }
-  
+
   /* Precio del plan */
   .plan-price {
     font-size: 1.2rem;
     color: #333;
     margin-bottom: 20px;
   }
-  
+
   /* Lista de características */
   .plan-features {
     list-style: none;
     padding: 0;
     margin-bottom: 20px;
+    text-align: start;
   }
-  
+
   .plan-feature {
     font-size: 1rem;
     color: #555;
@@ -78,6 +83,7 @@
   
   /* Botón */
   .plan-button {
+    align-self: center; /* Alinea el botón al inicio (izquierda) */
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -86,12 +92,29 @@
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s ease;
+    margin-top: auto; /* Empuja el botón hacia abajo de la tarjeta, asegurando que se alinee al final */
   }
-  
+
   .plan-button:hover {
     background-color: #0056b3;
   }
-  
+
+  .check-icon {
+    color: #28a745; /* Verde para los items incluidos */
+    margin-right: 10px;
+  }
+
+  .times-icon {
+    color: #dc3545; /* Rojo para los items no incluidos */
+    margin-right: 10px;
+  }
+
+  /* Tachar el texto de las características no incluidas */
+.strikethrough {
+  text-decoration: line-through;
+  color: #dc3545; /* Rojo para resaltar el texto tachado */
+}
+
   /* Responsivo */
   @media (max-width: 768px) {
     .plan-title {
@@ -107,4 +130,3 @@
       padding: 8px 15px;
     }
   }
-  

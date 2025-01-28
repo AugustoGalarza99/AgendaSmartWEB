@@ -20,79 +20,83 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <h1 className="navbar-logo">AgendaSmart</h1>
+        <div className="logo">
+          <h1 className="navbar-logo">AgendaSmart</h1>
+        </div>
         <div className="menu-icon" onClick={toggleMenu}>
           {isOpen ? <FaTimes className="icon" /> : <FaBars className="icon" />}
         </div>
-        <ul className={isOpen ? "nav-menu active" : "nav-menu"}>
-          <li className="nav-item">
-            <Link
-              to="home"
-              smooth={true}
-              duration={500}
-              offset={-70}
-              onClick={handleLinkClick} // Se cierra solo en móvil
-            >
-              Inicio
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              to="features"
-              smooth={true}
-              duration={500}
-              offset={-70}
-              onClick={handleLinkClick}
-            >
-              Características
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              to="carousel"
-              smooth={true}
-              duration={500}
-              offset={-70}
-              onClick={handleLinkClick}
-            >
-              Nuesta App
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              to="faq"
-              smooth={true}
-              duration={500}
-              offset={-70}
-              onClick={handleLinkClick}
-            >
-              Preguntas Frecuentes
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              to="plans"
-              smooth={true}
-              duration={500}
-              offset={-70}
-              onClick={handleLinkClick}
-            >
-              Planes
-            </Link>
-          </li>
-          
-          <li className="nav-item">
-            <Link
-              to="footer"
-              smooth={true}
-              duration={500}
-              offset={-70}
-              onClick={handleLinkClick}
-            >
-              Contacto
-            </Link>
-          </li>
-        </ul>
+        <div className="navegable">
+          <ul className={isOpen ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              <Link
+                to="home"
+                smooth={true}
+                duration={500}
+                offset={-70}
+                onClick={handleLinkClick} // Se cierra solo en móvil
+              >
+                Inicio
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="features"
+                smooth={true}
+                duration={500}
+                offset={-70}
+                onClick={handleLinkClick}
+              >
+                Características
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="carousel"
+                smooth={true}
+                duration={500}
+                offset={-70}
+                onClick={handleLinkClick}
+              >
+                Nuesta App
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="faq"
+                smooth={true}
+                duration={500}
+                offset={-70}
+                onClick={handleLinkClick}
+              >
+                Preguntas Frecuentes
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="plans"
+                smooth={true}
+                duration={500}
+                offset={-70}
+                onClick={handleLinkClick}
+              >
+                Planes
+              </Link>
+            </li>
+            
+            <li className="nav-item">
+              <Link
+                to="footer"
+                smooth={true}
+                duration={500}
+                offset={-70}
+                onClick={handleLinkClick}
+              >
+                Contacto
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );

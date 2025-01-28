@@ -16,19 +16,19 @@ function App() {
       <section id="home" style={{ height: "100vh", backgroundColor: "#f9f9f9" }}>
         <HeroSection />
       </section>
-      <section id="features" style={{ height: "100vh", backgroundColor: "#f1f1f1" }}>
+      <section id="features">
         <Features />
       </section>
-      <section id="cards" style={{ height: "100vh", backgroundColor: "#e9e9e9" }}>
+      <section id="cards">
         <InfoCards />
       </section>
-      <section id="carousel" style={{ height: "100vh", backgroundColor: "#e9e9e9" }}>
+      <section id="carousel">
         <Carousel />
       </section>
-      <section id="faq" style={{ height: "100vh", backgroundColor: "#e9e9e9" }}>
+      <section id="faq">
         <FAQ />
       </section>
-      <section id="plans" style={{ height: "100vh", backgroundColor: "#e9e9e9" }}>
+      <section id="plans">
         <Plans />
       </section>
       <Footer />
