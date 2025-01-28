@@ -34,7 +34,8 @@ function Navbar() {
                 smooth={true}
                 duration={500}
                 offset={-70}
-                onClick={handleLinkClick} // Se cierra solo en móvil
+                onClick={handleLinkClick}
+                activeClass="nav-menu-active" // Clase para el enlace activo
               >
                 Inicio
               </Link>
@@ -46,6 +47,7 @@ function Navbar() {
                 duration={500}
                 offset={-70}
                 onClick={handleLinkClick}
+                activeClass="nav-menu-active"
               >
                 Características
               </Link>
@@ -57,8 +59,9 @@ function Navbar() {
                 duration={500}
                 offset={-70}
                 onClick={handleLinkClick}
+                activeClass="nav-menu-active"
               >
-                Nuesta App
+                Nuestra App
               </Link>
             </li>
             <li className="nav-item">
@@ -68,6 +71,7 @@ function Navbar() {
                 duration={500}
                 offset={-70}
                 onClick={handleLinkClick}
+                activeClass="nav-menu-active"
               >
                 Preguntas Frecuentes
               </Link>
@@ -79,11 +83,11 @@ function Navbar() {
                 duration={500}
                 offset={-70}
                 onClick={handleLinkClick}
+                activeClass="nav-menu-active"
               >
                 Planes
               </Link>
             </li>
-            
             <li className="nav-item">
               <Link
                 to="footer"
@@ -91,6 +95,7 @@ function Navbar() {
                 duration={500}
                 offset={-70}
                 onClick={handleLinkClick}
+                activeClass="nav-menu-active"
               >
                 Contacto
               </Link>

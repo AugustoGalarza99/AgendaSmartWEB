@@ -13,14 +13,14 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px;
-    max-width: 1200px;
+ 
     margin: 0 auto;
   }
   
   /* Información general */
   .footer-info {
     flex: 1;
-    min-width: 250px;
+
   }
   
   .footer-title {
@@ -37,7 +37,7 @@
   /* Contacto */
   .footer-contact {
     flex: 1;
-    min-width: 250px;
+
   }
   
   .footer-subtitle {
@@ -48,6 +48,10 @@
   .footer-contact-list {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   .footer-contact-list li {
@@ -66,7 +70,7 @@
   /* Redes sociales */
   .footer-social {
     flex: 1;
-    min-width: 250px;
+
   }
   
   .footer-social-icons {

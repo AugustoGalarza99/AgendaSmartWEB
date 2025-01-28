@@ -2,7 +2,7 @@
 .info-cards {
     display: flex;
     flex-wrap: wrap; /* Responsivo */
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 20px;
     padding: 40px 20px;
     background-color: #f9f9f9;

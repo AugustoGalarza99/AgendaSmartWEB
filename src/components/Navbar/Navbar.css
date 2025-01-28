@@ -35,9 +35,6 @@
   }
 
   .navegable {
-    display: flex;
-    flex-grow: 1; /* Asegura que el menú ocupe el espacio restante */
-    justify-content: flex-end; /* Alinea el menú a la derecha */
     margin-right: 30px;
   }
   
@@ -57,6 +54,7 @@
     right: 0;
     background-color: #007bff;
     width: 100%;
+    z-index: 1000;
     height: calc(100vh - 70px);
     align-items: center;
     justify-content: center;
@@ -98,14 +96,10 @@
       display: block;
     }
 
-      /* Oculta el menú de navegación en dispositivos móviles cuando no está activo */
-    .navegable {
-      display: none; /* Oculta la sección del menú cuando el menú está abierto */
-    }
-  
     .nav-menu {
       display: none;
       transform: translateY(-100%);
     }
   }
+
   
