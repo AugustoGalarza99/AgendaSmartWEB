@@ -26,7 +26,7 @@ function Navbar() {
         <div className="menu-icon" onClick={toggleMenu}>
           {isOpen ? <FaTimes className="icon" /> : <FaBars className="icon" />}
         </div>
-        <div className="navegable">
+        <div className={`nav-menu ${isOpen ? "active" : ""}`}>
           <ul className={isOpen ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
               <Link
