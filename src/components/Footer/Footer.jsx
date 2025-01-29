@@ -38,13 +38,13 @@ function Footer() {
         <div className="footer-social">
           <h4 className="footer-subtitle">Síguenos</h4>
           <div className="footer-social-icons">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.facebook.com/profile.php?id=61570872520576" target="_blank" rel="noopener noreferrer">
               <FaFacebookF className="social-icon" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/agenda.smart/" target="_blank" rel="noopener noreferrer">
               <FaInstagram className="social-icon" />
             </a>
-            <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/3572674920" target="_blank" rel="noopener noreferrer">
               <FaWhatsapp className="social-icon" />
             </a>
           </div>

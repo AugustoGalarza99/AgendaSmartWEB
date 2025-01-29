@@ -102,8 +102,8 @@ const containerVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      delayChildren: 0.3, // Retraso antes de animar los hijos
-      staggerChildren: 0.2, // Espaciado entre animaciones de hijos
+      delayChildren: 0.1, // Retraso antes de animar los hijos
+      staggerChildren: 0.1, // Espaciado entre animaciones de hijos
     },
   },
 };
@@ -113,8 +113,8 @@ const listVariants = {
   visible: {
     opacity: 1,
     transition: {
-      delayChildren: 0.5,
-      staggerChildren: 0.3,
+      delayChildren: 0.2,
+      staggerChildren: 0.15,
     },
   },
 };
@@ -125,7 +125,7 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.3,
     },
   },
 };

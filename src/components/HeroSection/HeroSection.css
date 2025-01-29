@@ -60,6 +60,7 @@
   box-shadow: 0px 5px 15px rgba(255, 107, 107, 0.4);
   opacity: 0;
   animation: fadeInUp 1s ease-in-out forwards 0.4s;
+  text-decoration: none;
 }
 
 .cta-button:hover {

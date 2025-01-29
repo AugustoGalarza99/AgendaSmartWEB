@@ -99,6 +99,7 @@
   /* Botón */
   .plan-button {
     align-self: center; /* Alinea el botón al inicio (izquierda) */
+    text-decoration: none;
     background-color: #007bff;
     color: #fff;
     border: none;

@@ -27,10 +27,8 @@
   
   /* Logo */
   .navbar-logo {
-    color: #fff;
-    font-size: 1.8rem;
-    font-weight: bold;
-    cursor: pointer;
+    width: 70px;
+    height: 70px;
     margin-left: 30px;
   }
   

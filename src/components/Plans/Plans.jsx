@@ -122,7 +122,14 @@ function Plans() {
                 </li>
               ))}
             </ul>
-            <button className="plan-button">{plan.buttonText}</button>
+            <a
+              href="https://wa.me/3572674920"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="plan-button"
+            >
+              {plan.buttonText}
+            </a>
             </motion.div>
         ))}
       </div>

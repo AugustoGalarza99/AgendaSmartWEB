@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-scroll";
 import "./Navbar.css";
 import { FaBars, FaTimes } from "react-icons/fa";
+import agendasmart from "../../assets/agendasmart.png"
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +22,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="logo">
-          <h1 className="navbar-logo">AgendaSmart</h1>
+          <img className="navbar-logo" src={agendasmart} alt="" srcset="" />
         </div>
         <div className="menu-icon" onClick={toggleMenu}>
           {isOpen ? <FaTimes className="icon" /> : <FaBars className="icon" />}

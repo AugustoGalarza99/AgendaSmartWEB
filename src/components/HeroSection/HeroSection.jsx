@@ -14,7 +14,14 @@ function HeroSection() {
           <p className="hero-text">
             Descubre la mejor manera de gestionar tus tareas, eventos y recordatorios con nuestra agenda digital intuitiva y eficiente.
           </p>
-          <button className="cta-button">Comienza ahora mismo</button>
+          <a
+              href="https://wa.me/3572674920"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-button"
+            >
+              Comienza ahora mismo
+            </a>
         </div>
 
         {/* Imagen */}
