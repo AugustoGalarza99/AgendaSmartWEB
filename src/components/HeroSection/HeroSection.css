@@ -1,98 +1,148 @@
-/* General Styles */
+/* 🎯 Sección Hero */
 .hero-section {
-    display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(180deg, #554af3,#485f92,#dec0f1);
-    color: white;
-    height: 100vh;
-  }
-  
-  .hero-content {
-    flex: 1;
-    max-width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #554af3, #485f92, #dec0f1);
+  color: white;
+  padding: 50px 20px;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  gap: 40px;
+}
+
+/* 📌 Contenido */
+.hero-content {
+  flex: 1;
+  max-width: 550px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 15px;
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+
+.hero-title span {
+  color: #ffdf6c;
+}
+
+.hero-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards 0.2s;
+}
+
+/* 🎯 Botón CTA */
+.cta-button {
+  display: inline-block;
+  background: #ff6b6b;
+  color: white;
+  padding: 14px 28px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 5px 15px rgba(255, 107, 107, 0.4);
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards 0.4s;
+}
+
+.cta-button:hover {
+  background: #ff4c4c;
+  transform: scale(1.05);
+  box-shadow: 0px 8px 20px rgba(255, 76, 76, 0.5);
+}
+
+/* 📷 Imagen */
+.hero-image {
+  flex: 1;
+  max-width: 500px;
+  text-align: center;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards 0.6s;
+}
+
+/* 🌍 Responsividad */
+@media (max-width: 1024px) {
+  .hero-container {
+    flex-direction: column;
     text-align: center;
-    margin: 20px;
   }
-  
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-image {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
   .hero-title {
     font-size: 2.5rem;
-    line-height: 1.2;
-    margin-bottom: 20px;
   }
-  
-  .hero-title span {
-    color: #ffdf6c;
-  }
-  
+
   .hero-text {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 30px;
-  }
-  
-  .cta-button {
-    background-color: #ff6b6b;
-    color: white;
-    padding: 12px 24px;
     font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
   }
-  
-  .cta-button:hover {
-    background-color: #ff4c4c;
+
+  .cta-button {
+    font-size: 0.9rem;
+    padding: 12px 24px;
   }
-  
-  /* Image Section */
+
   .hero-image {
-    flex: 1;
-    max-width: 500px;
-    text-align: center;
-    margin: 20px;
-  }
-  
-  .image {
     max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .hero-title {
-      font-size: 2rem;
-    }
-  
-    .hero-text {
-      font-size: 1rem;
-    }
-  
-    .cta-button {
-      font-size: 0.9rem;
-    }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
   }
-  
-  @media (max-width: 480px) {
-    .hero-section {
-      padding: 30px 15px;
-    }
-  
-    .hero-title {
-      font-size: 1.8rem;
-    }
-  
-    .hero-text {
-      font-size: 0.9rem;
-    }
-  
-    .cta-button {
-      padding: 10px 20px;
-      font-size: 0.8rem;
-    }
+
+  .hero-text {
+    font-size: 0.9rem;
   }
-  
+
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ✨ Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

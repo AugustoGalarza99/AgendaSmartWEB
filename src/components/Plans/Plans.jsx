@@ -1,5 +1,6 @@
 import React from "react";
 import { FaCaretRight } from "react-icons/fa";
+import { motion } from "framer-motion"; // Importamos framer-motion
 import { FaCheck, FaTimes } from "react-icons/fa"; // Agregamos los íconos de check y times
 import "./Plans.css";
 
@@ -92,7 +93,16 @@ function Plans() {
       <h2 className="plans-title">Nuestros Planes</h2>
       <div className="plans-grid">
         {plans.map((plan, index) => (
-          <div key={index} className="plan-card">
+          <motion.div
+          key={index}
+          className="plan-card"
+          initial={{ opacity: 0, y: 50 }} // Oculto antes de aparecer
+          whileInView={{ opacity: 1, y: 0 }} // Aparece en el scroll
+          exit={{ opacity: 0, y: 50 }} // Se oculta si sale de vista
+          viewport={{ once: true, amount: 0.5 }} // Se activa cuando el 30% sea visible
+          transition={{ duration: 0.6, delay: index * 0.2 }} // Efecto progresivo
+        >
+
             <h3 className="plan-title">{plan.title}</h3>
             <p className="plan-price">{plan.price}</p>
             <ul className="plan-features">
@@ -113,7 +123,7 @@ function Plans() {
               ))}
             </ul>
             <button className="plan-button">{plan.buttonText}</button>
-          </div>
+            </motion.div>
         ))}
       </div>
     </div>

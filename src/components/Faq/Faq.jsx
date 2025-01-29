@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa"; // Íconos para expandir/contraer
-import faqImage from "../../assets/faq.png"
+import { motion } from "framer-motion";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa"; // Íconos de despliegue
+import faqImage from "../../assets/faq.png";
 import "./Faq.css";
 
 function FAQ() {
-  // Preguntas frecuentes con sus respuestas
   const faqs = [
     {
       question: "¿Qué es AgendaSmart?",
@@ -12,19 +12,19 @@ function FAQ() {
         "AgendaSmart es una solución digital diseñada para ayudarte a organizar tus tareas, citas y proyectos de manera eficiente y sencilla.",
     },
     {
-      question: "¿Es realmente una aplicacion propia?",
+      question: "¿Es realmente una aplicación propia?",
       answer:
-        "Asi es, creamos y configuramos tu propia aplicacion en muy poco tiempo para que puedas mejorar los rendimientos de tu negocio.",
+        "Así es, creamos y configuramos tu propia aplicación en muy poco tiempo para que puedas mejorar los rendimientos de tu negocio.",
     },
     {
-      question: "¿Puedo agregar mas funciones al sistema?",
+      question: "¿Puedo agregar más funciones al sistema?",
       answer:
-        "Si es posible, todas las nuevas funciones seran analizadas y cotizadas segun lo que sea acordado.",
+        "Sí, es posible. Todas las nuevas funciones serán analizadas y cotizadas según lo acordado.",
     },
     {
       question: "¿Debo descargar algo o mis clientes?",
       answer:
-        "No debes descargar nada ya que el sistema funciona desde un navegador web, ingresas al link y tienes acceso a todo.",
+        "No debes descargar nada ya que el sistema funciona desde un navegador web. Solo ingresas al link y tienes acceso a todo.",
     },
     {
       question: "¿Es segura mi información?",
@@ -42,15 +42,14 @@ function FAQ() {
         "AgendaSmart está disponible para dispositivos iOS, Android y también puede accederse desde el navegador en tu computadora.",
     },
     {
-      question: "¿Qué informacion debo brindar?",
+      question: "¿Qué información debo brindar?",
       answer:
-        "El cliente debera proporcionar toda la informacion necesaria para completar el diseño del logo, colores de la aplicacion y carga de datos.",
+        "El cliente deberá proporcionar toda la información necesaria para completar el diseño del logo, colores de la aplicación y carga de datos.",
     },
   ];
 
-  const [openIndex, setOpenIndex] = useState(null); // Control del acordeón
+  const [openIndex, setOpenIndex] = useState(null);
 
-  // Función para manejar el estado abierto/cerrado de las preguntas
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -59,34 +58,78 @@ function FAQ() {
     <div className="faq-container" id="faq">
       <h2 className="faq-title">Preguntas Frecuentes</h2>
       <div className="faq-content">
-        <div className="faq-image">
+        {/* Animación de imagen */}
+        <motion.div
+          className="faq-image"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+        >
           <img src={faqImage} alt="Imagen FAQ" />
-        </div>
-        <div className="faq-list">
+        </motion.div>
+
+        {/* Animación de las preguntas */}
+        <motion.div
+          className="faq-list"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
+        >
           {faqs.map((faq, index) => (
-            <div
+            <motion.div
               key={index}
               className={`faq-item ${openIndex === index ? "open" : ""}`}
+              variants={faqVariants}
             >
               <div className="faq-question" onClick={() => toggleFAQ(index)}>
                 <span>{faq.question}</span>
-                {openIndex === index ? (
-                  <FaChevronUp className="faq-icon" />
-                ) : (
-                  <FaChevronDown className="faq-icon" />
-                )}
+                <motion.span
+                  className="faq-icon"
+                  animate={{ rotate: openIndex === index ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {openIndex === index ? <FaChevronUp /> : <FaChevronDown />}
+                </motion.span>
               </div>
-              {openIndex === index && (
-                <div className="faq-answer">
-                  <p>{faq.answer}</p>
-                </div>
-              )}
-            </div>
+              <motion.div
+                className="faq-answer"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{
+                  height: openIndex === index ? "auto" : 0,
+                  opacity: openIndex === index ? 1 : 0,
+                }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+              >
+                <p>{faq.answer}</p>
+              </motion.div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
 }
+
+// Variantes de animación para las preguntas frecuentes
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const faqVariants = {
+  hidden: { opacity: 0, x: 50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
 
 export default FAQ;

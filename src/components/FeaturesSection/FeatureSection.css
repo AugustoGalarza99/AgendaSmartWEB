@@ -1,128 +1,144 @@
-/* Contenedor principal */
+/* Estilos Generales */
 .features {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 20px;
-    gap: 30px;
-    background-color: #f9f9f9;
-  }
-  
-  /* Sección de la imagen */
-  .features-image {
-    flex: 1;
-    max-width: 400px;
+  background-color: #f4f8ff;
+  padding: 80px 20px;
+}
+
+.features-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+/* Sección de la Imagen */
+.features-image {
+  flex: 1;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.image:hover {
+  transform: scale(1.05);
+}
+
+/* Contenido de las Características */
+.features-content {
+  flex: 1;
+  max-width: 600px;
+  text-align: left;
+}
+
+.features-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+.features-description {
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Características Individuales */
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  background: white;
+}
+
+/* Íconos */
+.icon {
+  font-size: 2.2rem;
+  color: #007bff;
+  flex-shrink: 0;
+}
+
+/* Título de la Característica */
+.feature-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Descripción de la Característica */
+.feature-text {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* 🎯 Responsividad */
+@media (max-width: 1024px) {
+  .features-container {
+    flex-direction: column;
     text-align: center;
-    animation: fadeInLeft 1.5s ease;
   }
-  
-  .image {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+  .features-image {
+    max-width: 80%;
   }
-  
-  /* Contenido de las características */
+
   .features-content {
-    flex: 2;
-    max-width: 600px;
-    animation: fadeInRight 1.5s ease;
+    max-width: 100%;
   }
-  
+
   .features-title {
     font-size: 2rem;
-    color: #333;
-    margin-bottom: 15px;
   }
-  
-  .features-description {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 30px;
-    line-height: 1.6;
-  }
-  
-  .features-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
+
   .feature-item {
-    display: flex;
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .features {
+    padding: 50px 15px;
+  }
+
+  .features-title {
+    font-size: 1.8rem;
+  }
+
+  .feature-item {
+    flex-direction: column;
     align-items: flex-start;
-    gap: 15px;
-    margin-bottom: 20px;
-    animation: fadeInUp 1.2s ease;
+    gap: 10px;
   }
-  
-  .icon {
-    font-size: 2rem;
-    color: #007bff;
-    flex-shrink: 0;
+
+  .features-image {
+    max-width: 100%;
   }
-  
-  .feature-title {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 5px;
-  }
-  
-  .feature-text {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.5;
-  }
-  
-  /* Animaciones */
-  @keyframes fadeInLeft {
-    from {
-      opacity: 0;
-      transform: translateX(-50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
-  @keyframes fadeInRight {
-    from {
-      opacity: 0;
-      transform: translateX(50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Responsivo */
-  @media (max-width: 768px) {
-    .features {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .features-content {
-      max-width: 100%;
-    }
-  
-    .features-image {
-      max-width: 100%;
-    }
-  }
-  
+}
