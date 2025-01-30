@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaTasks, FaBell, FaUsers, FaMobileAlt } from "react-icons/fa";
-import featureImage from "../../assets/1.png";
+import featureImage from "../../assets/fotofeature.png";
 import "./FeatureSection.css";
 
 function Features() {
@@ -29,7 +29,7 @@ function Features() {
           <img
             src={featureImage}
             alt="Características de la App"
-            className="image"
+            className="imagen"
           />
         </motion.div>
 
@@ -60,7 +60,7 @@ function Features() {
             <FeatureItem
               icon={<FaBell />}
               title="Recordatorios Inteligentes"
-              text="No olvides nada importante con notificaciones automáticas."
+              text="No olvides nada importante con recordatorios via WhatsApp."
             />
             <FeatureItem
               icon={<FaUsers />}

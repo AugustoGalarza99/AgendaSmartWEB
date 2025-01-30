@@ -1,6 +1,6 @@
 import React from "react";
 import "./HeroSection.css";
-import agendaImage from "../../assets/1.png";
+import agendaImage from "../../assets/fotohero.png";
 
 function HeroSection() {
   return (
@@ -26,7 +26,7 @@ function HeroSection() {
 
         {/* Imagen */}
         <div className="hero-image">
-          <img src={agendaImage} alt="Presentación de la agenda digital" className="image" />
+          <img src={agendaImage} alt="Presentación de la agenda digital" className="imagen" />
         </div>
       </div>
     </section>
