@@ -8,6 +8,7 @@ import FAQ from "./components/Faq/Faq";
 import Plans from "./components/Plans/Plans";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
+import FloatingWhatsAppButton from "./components/Whatsapp/Whatsapp";
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
         <Plans />
       </section>
       <Footer />
-    </div>
+      <FloatingWhatsAppButton />
+    </div>    
   );
 }
 

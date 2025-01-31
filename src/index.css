@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Linux Biolinum Capitals';
+    src: url('./font/LinBiolinum_R.ttf') format('opentype'); /* Cambia el nombre según tu archivo */
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Qwerty Ability';
+    src: url('./font/Qwerty\ Ability\ -\ Personal\ Use.otf') format('truetype'); /* Ajusta la ruta si es necesario */
+}
+
+html, body, #root {
+    font-family: "Linux Biolinum Capitals", sans-serif;
+}

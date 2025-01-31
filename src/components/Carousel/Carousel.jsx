@@ -14,6 +14,7 @@ import image6 from "../../assets/fotobanner6.png";
 import image7 from "../../assets/fotobanner7.png";
 import image8 from "../../assets/fotobanner8.png";
 import image9 from "../../assets/fotobanner9.png";
+import image10 from "../../assets/fotobanner10.png";
 
 function Carousel() {
   // Configuración del carrusel
@@ -21,19 +22,19 @@ function Carousel() {
     dots: true, // Mostrar indicadores de navegación
     infinite: true, // Ciclo infinito
     speed: 500, // Velocidad de transición
-    slidesToShow: 4, // Mostrar 4 imágenes en escritorio
+    slidesToShow: 3, // Mostrar 4 imágenes en escritorio
     slidesToScroll: 1, // Avanza una imagen por vez
     responsive: [
       {
         breakpoint: 1024, // Tablets
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
         },
       },
       {
         breakpoint: 768, // Teléfonos
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
         },
       },
       {
@@ -75,6 +76,9 @@ function Carousel() {
         </div>
         <div className="carousel-slide">
           <img src={image9} alt="Apartado 9" className="carousel-image" />
+        </div>
+        <div className="carousel-slide">
+          <img src={image10} alt="Apartado 10" className="carousel-image" />
         </div>
       </Slider>
     </div>
