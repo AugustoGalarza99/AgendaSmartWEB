@@ -9,6 +9,7 @@ import Plans from "./components/Plans/Plans";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import FloatingWhatsAppButton from "./components/Whatsapp/Whatsapp";
+import AlbumDeFotos from "./components/AlbumDeFotos/AlbumDeFotos";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
       <section id="plans">
         <Plans />
       </section>
+      <AlbumDeFotos />
       <Footer />
       <FloatingWhatsAppButton />
     </div>    
