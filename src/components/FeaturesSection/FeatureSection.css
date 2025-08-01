@@ -1,7 +1,7 @@
 /* Estilos Generales */
 .features {
-  background-color: #f4f8ff;
-  padding: 80px 20px;
+  background-color: #f5f6fa; /* Gris suave de la paleta */
+  padding: 100px 20px; /* Más espaciado vertical */
 }
 
 .features-container {
@@ -10,27 +10,27 @@
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 40px;
+  gap: 50px; /* Mayor separación */
 }
 
 /* Sección de la Imagen */
 .features-image {
   flex: 1;
-  max-width: 800px;
+  max-width: 600px; /* Reducido para mejor proporción */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.image {
+.imagen {
   width: 100%;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease-in-out;
 }
 
-.image:hover {
+.imagen:hover {
   transform: scale(1.05);
 }
 
@@ -42,23 +42,23 @@
 }
 
 .features-title {
-  font-size: 2.5rem;
+  font-size: 2.8rem; /* Mayor tamaño */
   font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 15px;
+  color: #004aad; /* Azul del navbar */
+  margin-bottom: 20px;
 }
 
 .features-description {
   font-size: 1.2rem;
-  color: #444;
-  margin-bottom: 30px;
+  color: #333333; /* Texto más oscuro */
+  margin-bottom: 40px;
   line-height: 1.6;
 }
 
 .features-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px; /* Más espaciado */
 }
 
 /* Características Individuales */
@@ -66,40 +66,83 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  padding: 15px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  background: #ffffff; /* Fondo blanco */
+  border: 1px solid #c0d1f3; /* Borde sutil */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
 }
 
 .feature-item:hover {
   transform: translateY(-5px);
-  background: white;
+  background: #c0d1f3; /* Fondo claro en hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-item:hover .feature-title,
+.feature-item:hover .feature-text {
+  color: #333333; /* Texto oscuro en hover */
+}
+
+.feature-item:hover .icon {
+  color: #ffcc00; /* Ícono cambia a amarillo en hover */
 }
 
 /* Íconos */
-.icon {
-  font-size: 2.2rem;
-  color: #007bff;
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: #c0d1f3; /* Fondo circular */
+  border-radius: 50%;
   flex-shrink: 0;
+}
+
+.icon {
+  font-size: 2.5rem;
+  color: #004aad; /* Azul del navbar */
 }
 
 /* Título de la Característica */
 .feature-title {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: #222;
+  color: #004aad; /* Azul del navbar */
+  margin-bottom: 5px;
 }
 
 /* Descripción de la Característica */
 .feature-text {
   font-size: 1rem;
-  color: #666;
+  color: #333333; /* Texto más oscuro */
   line-height: 1.5;
 }
 
-/* 🎯 Responsividad */
+/* Botón CTA */
+.cta-button {
+  display: inline-block;
+  background: #ffcc00; /* Amarillo dorado */
+  color: #1a1a1a; /* Texto oscuro */
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  margin-top: 30px;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+  background: #e6b800; /* Dorado más oscuro */
+  box-shadow: 0 8px 20px rgba(230, 184, 0, 0.5);
+}
+
+/* Responsividad */
 @media (max-width: 1024px) {
   .features-container {
     flex-direction: column;
@@ -115,7 +158,7 @@
   }
 
   .features-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .feature-item {
@@ -125,20 +168,49 @@
 
 @media (max-width: 768px) {
   .features {
-    padding: 50px 15px;
+    padding: 60px 15px;
   }
 
+  .features-title {
+    font-size: 2rem;
+  }
+
+  .feature-item {
+    flex-direction: row; /* Mantener horizontal si hay espacio */
+    align-items: center;
+    gap: 15px;
+  }
+
+  .features-image {
+    max-width: 90%; /* Ajuste para móviles */
+  }
+
+  .icon-container {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
   .features-title {
     font-size: 1.8rem;
   }
 
-  .feature-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+  .features-description {
+    font-size: 1rem;
   }
 
-  .features-image {
-    max-width: 100%;
+  .feature-item {
+    flex-direction: column; /* Apilar en pantallas muy pequeñas */
+    align-items: flex-start;
+  }
+
+  .cta-button {
+    padding: 12px 24px;
+    font-size: 0.9rem;
   }
 }

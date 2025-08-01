@@ -26,7 +26,7 @@ function HeroSection() {
 
         {/* Imagen */}
         <div className="hero-image">
-          <img src={agendaImage} alt="Presentación de la agenda digital" className="imagen" />
+          <img src={agendaImage} alt="Presentación de la agenda digital" className="imagen-hero" />
         </div>
       </div>
     </section>

@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #554af3, #485f92, #dec0f1);
+  background: linear-gradient(180deg, #004aad, #4a6bb5, #c0d1f3);
   color: white;
   padding: 50px 20px;
   font-family: var(--font);
@@ -35,7 +35,7 @@
 }
 
 .hero-title span {
-  color: #ffdf6c;
+  color: #ffcc00; /* Cambiado de #ffdf6c a #ffcc00 */
 }
 
 .hero-text {
@@ -50,8 +50,8 @@
 /* 🎯 Botón CTA */
 .cta-button {
   display: inline-block;
-  background: #ff6b6b;
-  color: white;
+  background: #ffcc00; /* Amarillo dorado */
+  color: #1a1a1a; /* Texto oscuro para contraste */
   padding: 14px 28px;
   font-size: 1rem;
   border: none;
@@ -59,16 +59,16 @@
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0px 5px 15px rgba(255, 107, 107, 0.4);
+  box-shadow: 0px 5px 15px rgba(255, 204, 0, 0.4);
   opacity: 0;
   animation: fadeInUp 1s ease-in-out forwards 0.4s;
   text-decoration: none;
 }
 
 .cta-button:hover {
-  background: #ff4c4c;
+  background: #e6b800; /* Dorado más oscuro */
   transform: scale(1.05);
-  box-shadow: 0px 8px 20px rgba(255, 76, 76, 0.5);
+  box-shadow: 0px 8px 20px rgba(230, 184, 0, 0.5);
 }
 
 /* 📷 Imagen */
@@ -78,7 +78,7 @@
   text-align: center;
 }
 
-.imagen {
+.imagen-hero {
   width: 100%;
   height: auto;
   border-radius: 15px;

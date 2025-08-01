@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa"; // Íconos de despliegue
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import faqImage from "../../assets/faq.png";
 import "./Faq.css";
 
@@ -55,20 +55,26 @@ function FAQ() {
   };
 
   return (
-    <div className="faq-container" id="faq">
-      <h2 className="faq-title">Preguntas Frecuentes</h2>
+    <section className="faq-container" id="faq">
+      <motion.h2
+        className="faq-title"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        Preguntas Frecuentes
+      </motion.h2>
       <div className="faq-content">
-        {/* Animación de imagen */}
         <motion.div
           className="faq-image"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+          initial={{ opacity: 0, x: -50, scale: 0.95 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+          viewport={{ once: true }}
         >
-          <img src={faqImage} alt="Imagen FAQ" />
+          <img src={faqImage} alt="Ilustración de preguntas frecuentes" loading="lazy" />
         </motion.div>
-
-        {/* Animación de las preguntas */}
         <motion.div
           className="faq-list"
           initial="hidden"
@@ -81,25 +87,39 @@ function FAQ() {
               key={index}
               className={`faq-item ${openIndex === index ? "open" : ""}`}
               variants={faqVariants}
+              whileHover={{ scale: 1.01, boxShadow: "0 8px 20px rgba(0, 74, 173, 0.2)" }}
+              tabIndex={0}
+              onClick={() => toggleFAQ(index)}
             >
-              <div className="faq-question" onClick={() => toggleFAQ(index)}>
+              <div
+                className="faq-question"
+                role="button"
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
+              >
                 <span>{faq.question}</span>
                 <motion.span
-                  className="faq-icon"
+                  className="faq-icon-container"
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {openIndex === index ? <FaChevronUp /> : <FaChevronDown />}
+                  {openIndex === index ? (
+                    <FaChevronUp aria-label="Cerrar respuesta" />
+                  ) : (
+                    <FaChevronDown aria-label="Abrir respuesta" />
+                  )}
                 </motion.span>
               </div>
               <motion.div
+                id={`faq-answer-${index}`}
                 className="faq-answer"
+                role="region"
                 initial={{ height: 0, opacity: 0 }}
                 animate={{
                   height: openIndex === index ? "auto" : 0,
                   opacity: openIndex === index ? 1 : 0,
                 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 <p>{faq.answer}</p>
               </motion.div>
@@ -107,11 +127,10 @@ function FAQ() {
           ))}
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 }
 
-// Variantes de animación para las preguntas frecuentes
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -124,10 +143,11 @@ const containerVariants = {
 };
 
 const faqVariants = {
-  hidden: { opacity: 0, x: 50 },
+  hidden: { opacity: 0, x: 50, scale: 0.98 },
   visible: {
     opacity: 1,
     x: 0,
+    scale: 1,
     transition: { duration: 0.5, ease: "easeOut" },
   },
 };

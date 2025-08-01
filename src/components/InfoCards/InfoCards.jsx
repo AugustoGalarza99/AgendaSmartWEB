@@ -1,11 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaCheckCircle, FaShieldAlt, FaCogs } from "react-icons/fa"; // Importamos íconos específicos
+import { FaCheckCircle, FaShieldAlt, FaCogs } from "react-icons/fa";
 import "./InfoCards.css";
 
 function InfoCards() {
   return (
-    <motion.div
+    <motion.section
       className="info-cards"
       id="cards"
       initial="hidden"
@@ -13,13 +13,15 @@ function InfoCards() {
       viewport={{ once: true, amount: 0.2 }}
       variants={containerVariants}
     >
-      <motion.div className="card" variants={cardVariants}>
+      <motion.div
+        className="card"
+        variants={cardVariants}
+        whileHover={{ scale: 1.02, boxShadow: "0 8px 20px rgba(0, 0, 0, 0.15)" }}
+        tabIndex={0}
+      >
         <h3 className="card-title">
-          <motion.span
-            className="icon"
-            variants={iconVariants}
-          >
-            <FaCheckCircle />
+          <motion.span className="icon-container" variants={iconVariants}>
+            <FaCheckCircle aria-label="Simple" />
           </motion.span>
           Simple
         </h3>
@@ -28,13 +30,15 @@ function InfoCards() {
           complicaciones. ¡Intuitivo desde el primer clic!
         </p>
       </motion.div>
-      <motion.div className="card" variants={cardVariants}>
+      <motion.div
+        className="card"
+        variants={cardVariants}
+        whileHover={{ scale: 1.02, boxShadow: "0 8px 20px rgba(0, 0, 0, 0.15)" }}
+        tabIndex={0}
+      >
         <h3 className="card-title">
-          <motion.span
-            className="icon"
-            variants={iconVariants}
-          >
-            <FaShieldAlt />
+          <motion.span className="icon-container" variants={iconVariants}>
+            <FaShieldAlt aria-label="Seguro" />
           </motion.span>
           Seguro
         </h3>
@@ -43,13 +47,15 @@ function InfoCards() {
           Prioridad total a tu privacidad.
         </p>
       </motion.div>
-      <motion.div className="card" variants={cardVariants}>
+      <motion.div
+        className="card"
+        variants={cardVariants}
+        whileHover={{ scale: 1.02, boxShadow: "0 8px 20px rgba(0, 0, 0, 0.15)" }}
+        tabIndex={0}
+      >
         <h3 className="card-title">
-          <motion.span
-            className="icon"
-            variants={iconVariants}
-          >
-            <FaCogs />
+          <motion.span className="icon-container" variants={iconVariants}>
+            <FaCogs aria-label="Customizable" />
           </motion.span>
           Customizable
         </h3>
@@ -58,7 +64,8 @@ function InfoCards() {
           único y a tu medida!
         </p>
       </motion.div>
-    </motion.div>
+
+    </motion.section>
   );
 }
 
@@ -68,17 +75,18 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2, // Animación secuencial entre las tarjetas
+      staggerChildren: 0.25, // Más espaciado entre animaciones
       delayChildren: 0.3,
     },
   },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 50 }, // Aparece desde abajo
+  hidden: { opacity: 0, y: 50, scale: 0.95 },
   visible: {
     opacity: 1,
     y: 0,
+    scale: 1,
     transition: {
       duration: 0.6,
       ease: "easeOut",
@@ -87,14 +95,14 @@ const cardVariants = {
 };
 
 const iconVariants = {
-  hidden: { scale: 0, rotate: -90 }, // Los íconos comienzan pequeños y rotados
+  hidden: { scale: 0, rotate: -45 }, // Rotación más suave
   visible: {
     scale: 1,
     rotate: 0,
     transition: {
       type: "spring",
-      stiffness: 200,
-      damping: 10,
+      stiffness: 150, // Animación más suave
+      damping: 15,
     },
   },
 };
