@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import faqImage from "../../assets/faq.png";
-import "./Faq.css";
+import "./Faq.css"; 
 
 function FAQ() {
   const faqs = [
