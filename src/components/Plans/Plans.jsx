@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaCheck, FaTimes } from "react-icons/fa";
+import { FaCheck, FaTimes, FaPlus, FaMinus } from "react-icons/fa";
 import "./Plans.css";
 
 function Plans() {
+  const [professionalCount, setProfessionalCount] = useState(1);
+
   const plans = [
     {
       title: "Plan Nivel 1",
-      price: "$7.000 / mes",
+      basePrice: 10000,
       features: [
         { name: "Agenda digital", included: true },
         { name: "Turnos ilimitados", included: true },
@@ -27,7 +29,7 @@ function Plans() {
     },
     {
       title: "Plan Nivel 2",
-      price: "$10.000 / mes",
+      basePrice: 15000,
       features: [
         { name: "Agenda digital", included: true },
         { name: "Turnos ilimitados", included: true },
@@ -47,7 +49,7 @@ function Plans() {
     },
     {
       title: "Plan Nivel 3",
-      price: "$13.000 / mes",
+      basePrice: 18000,
       features: [
         { name: "Agenda digital", included: true },
         { name: "Turnos ilimitados", included: true },
@@ -67,7 +69,7 @@ function Plans() {
     },
     {
       title: "Plan Nivel 4",
-      price: "Consultar",
+      basePrice: null,
       features: [
         { name: "Agenda digital", included: true },
         { name: "Turnos ilimitados", included: true },
@@ -84,9 +86,17 @@ function Plans() {
         { name: "Consultoría profesional", included: true },
       ],
       buttonText: "Contactar",
-      highlighted: true, // Añadido para resaltar
+      highlighted: true,
     },
   ];
+
+  const calculateTotalPrice = (basePrice, count) => {
+    if (basePrice === null) return "Consultar";
+    const additionalCost = (basePrice * 0.7) * (count - 1); // 70% del basePrice por cada profesional adicional
+    return `$${(basePrice + additionalCost).toLocaleString("es-AR", {
+      minimumFractionDigits: 0,
+    })} / mes`;
+  };
 
   return (
     <section className="plans-container" id="plans">
@@ -111,49 +121,63 @@ function Plans() {
             key={index}
             className={`plan-card ${plan.highlighted ? "highlighted" : ""}`}
             variants={cardVariants}
-            whileHover={{ scale: 1.02, boxShadow: "0 8px 20px rgba(0, 74, 173, 0.2)" }}
+            whileHover={{ scale: 1.03, boxShadow: "0 6px 15px rgba(0, 74, 173, 0.2)" }}
             tabIndex={0}
             aria-describedby={`plan-description-${index}`}
           >
-            <div>
+            <div className="plan-header">
               <h3 className="plan-title">{plan.title}</h3>
-              <p className="plan-price">{plan.price}</p>
-              <motion.ul
-                className="plan-features"
-                initial="hidden"
-                animate="visible"
-                variants={listVariants}
-              >
-                {plan.features.map((feature, idx) => (
-                  <motion.li
-                    key={idx}
-                    className="plan-feature"
-                    variants={featureVariants}
-                  >
-                    <span className="icon-container">
-                      {feature.included ? (
-                        <FaCheck
-                          className="check-icon"
-                          aria-label="Característica incluida"
-                        />
-                      ) : (
-                        <FaTimes
-                          className="times-icon"
-                          aria-label="Característica no incluida"
-                        />
-                      )}
-                    </span>
-                    <span className={feature.included ? "" : "strikethrough"}>
-                      {feature.name}
-                    </span>
-                  </motion.li>
-                ))}
-              </motion.ul>
+              {/*{plan.highlighted && <span className="badge">Recomendado</span>}*/}
             </div>
+            <div className="plan-price-container">
+              <p className="plan-price">{calculateTotalPrice(plan.basePrice, professionalCount)}</p>
+              {!plan.highlighted && (
+                <div className="professional-counter">
+                  <button
+                    onClick={() => setProfessionalCount(Math.max(1, professionalCount - 1))}
+                    aria-label="Disminuir cantidad de profesionales"
+                  >
+                    <FaMinus />
+                  </button>
+                  <span>{professionalCount} Profesional{professionalCount > 1 ? "es" : ""}</span>
+                  <button
+                    onClick={() => setProfessionalCount(professionalCount + 1)}
+                    aria-label="Aumentar cantidad de profesionales"
+                  >
+                    <FaPlus />
+                  </button>
+                </div>
+              )}
+            </div>
+            <motion.ul
+              className="plan-features"
+              initial="hidden"
+              animate="visible"
+              variants={listVariants}
+            >
+              {plan.features.map((feature, idx) => (
+                <motion.li
+                  key={idx}
+                  className="plan-feature"
+                  variants={featureVariants}
+                >
+                  <span className="icon-container">
+                    {feature.included ? (
+                      <FaCheck className="check-icon" aria-label="Característica incluida" />
+                    ) : (
+                      <FaTimes className="times-icon" aria-label="Característica no incluida" />
+                    )}
+                  </span>
+                  <span className={feature.included ? "" : "strikethrough"}>
+                    {feature.name}
+                  </span>
+                </motion.li>
+              ))}
+            </motion.ul>
             <motion.a
-              href="https://wa.me/3572674920"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={plan.highlighted ? "https://wa.me/3572674920" : "#"}
+              target={plan.highlighted ? "_blank" : ""}
+              rel={plan.highlighted ? "noopener noreferrer" : ""}
               className="plan-button"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

@@ -1,57 +1,73 @@
 /* General Styles */
 .info-cards {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px; /* Más espaciado */
-  padding: 80px 20px; /* Más espacio vertical */
-  background-color: #f5f6fa; /* Gris suave de la paleta */
+  flex-direction: column;
+  align-items: center;
+  gap: 40px; /* Más espaciado general */
+  padding: 80px 20px;
+  background-color: #f5f6fa;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+.info-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #004aad;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: var(--font, "Inter, sans-serif");
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
 .card {
   background-color: #ffffff;
-  border: 1px solid #c0d1f3; /* Borde sutil */
+  border: 1px solid #c0d1f3;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   text-align: center;
   padding: 25px;
   flex: 1;
-  max-width: 320px; /* Ligeramente más grande */
+  max-width: 320px;
   min-width: 250px;
   transition: all 0.3s ease-in-out;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  background: #c0d1f3; /* Fondo claro en hover */
-  box-shadow: 0 8px 20px rgba(0, 74, 173, 0.3); /* Sombra basada en #004aad */
+  background: #c0d1f3;
+  box-shadow: 0 8px 20px rgba(0, 74, 173, 0.3);
 }
 
 .card:hover .card-title,
 .card:hover .card-text {
-  color: #333333; /* Texto oscuro en hover */
+  color: #333333;
 }
 
 .card:hover .icon {
-  color: #ffcc00; /* Ícono cambia a amarillo en hover */
+  color: #ffcc00;
 }
 
 .card-title {
   font-size: 1.6rem;
   font-weight: 600;
-  color: #004aad; /* Azul del navbar */
+  color: #004aad;
   margin-bottom: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px; /* Más espacio entre ícono y texto */
+  gap: 12px;
 }
 
 .card-text {
   font-size: 1rem;
-  color: #333333; /* Texto más oscuro */
+  color: #333333;
   line-height: 1.6;
 }
 
@@ -61,20 +77,20 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: #c0d1f3; /* Fondo circular */
+  background: #c0d1f3;
   border-radius: 50%;
 }
 
 .icon {
   font-size: 2.2rem;
-  color: #004aad; /* Azul del navbar */
+  color: #004aad;
 }
 
 /* Botón CTA */
 .cta-button {
   display: inline-block;
-  background: #ffcc00; /* Amarillo dorado */
-  color: #1a1a1a; /* Texto oscuro */
+  background: #ffcc00;
+  color: #1a1a1a;
   padding: 14px 28px;
   font-size: 1rem;
   font-weight: bold;
@@ -87,15 +103,19 @@
 }
 
 .cta-button:hover {
-  background: #e6b800; /* Dorado más oscuro */
+  background: #e6b800;
   box-shadow: 0 8px 20px rgba(230, 184, 0, 0.5);
 }
 
 /* Responsive Styles */
 @media (max-width: 1024px) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .card {
-    max-width: 45%;
-    min-width: 280px;
+    max-width: 400px;
   }
 }
 
@@ -104,8 +124,12 @@
     padding: 60px 15px;
   }
 
+  .info-title {
+    font-size: 2rem;
+  }
+
   .card {
-    max-width: 90%; /* Ocupa más espacio en móviles */
+    max-width: 90%;
     min-width: unset;
   }
 
@@ -128,6 +152,10 @@
 }
 
 @media (max-width: 480px) {
+  .info-title {
+    font-size: 1.8rem;
+  }
+
   .card {
     max-width: 100%;
   }

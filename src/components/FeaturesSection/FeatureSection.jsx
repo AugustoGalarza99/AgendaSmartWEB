@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaTasks, FaBell, FaUsers, FaMobileAlt } from "react-icons/fa";
+import { FaTasks, FaBell, FaUsers, FaMobileAlt, FaMoneyBillAlt } from "react-icons/fa";
 import featureImage from "../../assets/fotofeature.png";
 import "./FeatureSection.css";
 
@@ -21,7 +21,7 @@ function Features() {
         viewport={{ once: true, amount: 0.3 }}
         variants={containerVariants}
       >
-        {/* Imagen */}
+        {/* Imagen con botón debajo */}
         <motion.div
           className="features-image"
           variants={imageVariants} // Animación específica para la imagen
@@ -31,6 +31,15 @@ function Features() {
             alt="Características de la App"
             className="imagen"
           />
+          <motion.a
+            href="#cta"
+            className="cta-button"
+            variants={itemVariants}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Prueba ahora
+          </motion.a>
         </motion.div>
 
         {/* Contenido */}
@@ -63,9 +72,9 @@ function Features() {
               text="No olvides nada importante con recordatorios via WhatsApp."
             />
             <FeatureItem
-              icon={<FaUsers aria-label="Colaboración" />}
-              title="Colaboración"
-              text="Comparte tus tareas y proyectos con tu equipo."
+              icon={<FaMoneyBillAlt aria-label="Cobro de Señas" />}
+              title="Cobro de Señas"
+              text="Reducí el ausentismo aceptando pagos online por adelantado, de manera segura y eficiente a través de nuestra integración con Mercado Pago."
             />
             <FeatureItem
               icon={<FaMobileAlt aria-label="Compatibilidad Móvil" />}
@@ -73,23 +82,13 @@ function Features() {
               text="Disponible para iOS y Android, lleva tu agenda a todas partes."
             />
           </motion.div>
-          {/* Botón CTA opcional */}
-          <motion.a
-            href="#cta"
-            className="cta-button"
-            variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Prueba ahora
-          </motion.a>
         </div>
       </motion.div>
     </motion.section>
   );
 }
 
-const FeatureItem = ({ icon, title, text }) => {
+const FeatureItem = ({ icon, title, text, ctaText, ctaLink }) => {
   return (
     <motion.div
       className="feature-item"
@@ -100,6 +99,16 @@ const FeatureItem = ({ icon, title, text }) => {
       <div>
         <h4 className="feature-title">{title}</h4>
         <p className="feature-text">{text}</p>
+        {ctaText && ctaLink && (
+          <motion.a
+            href={ctaLink}
+            className="feature-cta"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {ctaText}
+          </motion.a>
+        )}
       </div>
     </motion.div>
   );
