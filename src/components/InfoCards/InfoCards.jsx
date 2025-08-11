@@ -13,15 +13,29 @@ function InfoCards() {
       viewport={{ once: true, amount: 0.2 }}
       variants={containerVariants}
     >
-      <motion.h2
-        className="info-title"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+      <motion.div
+        className="info-header"
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true }}
       >
-        ¿Por qué elegir AgendaSmart? Impulsamos tu éxito al siguiente nivel
-      </motion.h2>
+        <motion.h2
+          className="info-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          ¿Por qué elegir AgendaSmart?
+        </motion.h2>
+        <motion.p
+          className="info-subtitle"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          Impulsamos tu éxito al siguiente nivel
+        </motion.p>
+      </motion.div>
       <motion.div
         className="cards-container"
         variants={containerVariants}
@@ -136,7 +150,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2, // Ajustado para un flujo más natural
+      staggerChildren: 0.2,
       delayChildren: 0.3,
     },
   },
