@@ -75,6 +75,7 @@ function Plans() {
         { name: "Catálogo de productos", included: false },        
       ],
       buttonText: "Elegir Plan",
+      highlighted: true,
     },
     {
       title: "Plan Premium",
@@ -98,7 +99,6 @@ function Plans() {
         { name: "Catálogo de productos", included: true },
       ],
       buttonText: "Contactar",
-      highlighted: true,
     },
   ];
 
@@ -109,6 +109,14 @@ function Plans() {
       minimumFractionDigits: 0,
     })} / mes`;
   };
+
+  const buildWhatsAppLink = (planTitle, count) => {
+    const phone = "5493572674920"; // sin "+"
+    const msg = `¡Hola! Quiero consultar por el ${planTitle} para ${count} ` +
+                `profesional${count > 1 ? "es" : ""}.`;
+    return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+  };
+
 
   return (
     <section className="plans-container" id="plans">
@@ -137,29 +145,29 @@ function Plans() {
             tabIndex={0}
             aria-describedby={`plan-description-${index}`}
           >
+            {plan.highlighted && (
+              <span className="corner-ribbon" aria-hidden="true">Recomendado</span>
+            )}
             <div className="plan-header">
               <h3 className="plan-title">{plan.title}</h3>
-              {plan.highlighted && <span className="badge">Recomendado</span>}
             </div>
             <div className="plan-price-container">
               <p className="plan-price">{calculateTotalPrice(plan.basePrice, professionalCount)}</p>
-              {!plan.highlighted && (
-                <div className="professional-counter">
-                  <button
-                    onClick={() => setProfessionalCount(Math.max(1, professionalCount - 1))}
-                    aria-label="Disminuir cantidad de profesionales"
-                  >
-                    <FaMinus />
-                  </button>
-                  <span>{professionalCount} Profesional{professionalCount > 1 ? "es" : ""}</span>
-                  <button
-                    onClick={() => setProfessionalCount(professionalCount + 1)}
-                    aria-label="Aumentar cantidad de profesionales"
-                  >
-                    <FaPlus />
-                  </button>
-                </div>
-              )}
+              <div className="professional-counter">
+                <button
+                  onClick={() => setProfessionalCount(Math.max(1, professionalCount - 1))}
+                  aria-label="Disminuir cantidad de profesionales"
+                >
+                  <FaMinus />
+                </button>
+                <span>{professionalCount} Profesional{professionalCount > 1 ? "es" : ""}</span>
+                <button
+                  onClick={() => setProfessionalCount(professionalCount + 1)}
+                  aria-label="Aumentar cantidad de profesionales"
+                >
+                  <FaPlus />
+                </button>
+              </div>
             </div>
             <motion.ul
               className="plan-features"
@@ -187,9 +195,9 @@ function Plans() {
               ))}
             </motion.ul>
             <motion.a
-              href={plan.highlighted ? "https://wa.me/3572674920" : "#"}
-              target={plan.highlighted ? "_blank" : ""}
-              rel={plan.highlighted ? "noopener noreferrer" : ""}
+              href={buildWhatsAppLink(plan.title, professionalCount)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="plan-button"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

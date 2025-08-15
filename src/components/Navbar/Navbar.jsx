@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-scroll";
 import "./Navbar.css";
 import { FaBars, FaTimes } from "react-icons/fa";
-import agendasmart from "../../assets/agendasmart.png"
+import agendasmart from "../../assets/AgendaSmartBlanco.png"
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

@@ -2,7 +2,13 @@ import React from "react";
 import "./HeroSection.css";
 import agendaImage from "../../assets/fotohero.png";
 
+const PHONE = "5493572674920"; // sin "+"
+const FIXED_TEXT = encodeURIComponent(
+  "¡Hola! Me gustaría hacer una consulta sobre los planes y precios."
+);
+
 function HeroSection() {
+  const waLink = `https://wa.me/${PHONE}?text=${FIXED_TEXT}`;
   return (
     <section className="hero-section" id="home">
       <div className="hero-container">
@@ -15,7 +21,7 @@ function HeroSection() {
             Descubre la mejor manera de gestionar tus tareas, eventos y recordatorios con nuestra agenda digital intuitiva y eficiente.
           </p>
           <a
-              href="https://wa.me/3572674920"
+              href={waLink}
               target="_blank"
               rel="noopener noreferrer"
               className="cta-button"

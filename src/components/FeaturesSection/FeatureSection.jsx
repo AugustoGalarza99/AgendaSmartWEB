@@ -31,15 +31,6 @@ function Features() {
             alt="Características de la App"
             className="imagen"
           />
-          <motion.a
-            href="#cta"
-            className="cta-button"
-            variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Prueba ahora
-          </motion.a>
         </motion.div>
 
         {/* Contenido */}

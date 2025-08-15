@@ -1,85 +1,83 @@
 /* Contenedor general */
 .plans-container {
   padding: 80px 20px;
-  max-width: 1200px; /* Consistencia con otras secciones */
+  max-width: 1200px;
   margin: 0 auto;
   text-align: center;
-  background-color: #f5f6fa; /* Gris suave de la paleta */
+  background-color: #f5f6fa;
 }
 
 /* Título */
 .plans-title {
   font-size: 2.8rem;
   font-weight: 700;
-  color: #004aad; /* Azul del navbar */
+  color: #004aad;
   margin-bottom: 40px;
-  font-family: var(--font, "Inter, sans-serif"); /* Consistencia tipográfica */
+  font-family: var(--font, "Inter, sans-serif");
 }
 
 /* Grid de las tarjetas */
 .plans-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px; /* Más espaciado */
+  gap: 30px;
 }
 
 /* Tarjeta individual */
 .plan-card {
   background-color: #ffffff;
-  border: 1px solid #c0d1f3; /* Borde de la paleta */
+  border: 1px solid #c0d1f3;
   border-radius: 12px;
   padding: 25px;
-  box-shadow: 0 4px 10px rgba(0, 74, 173, 0.15); /* Sombra basada en #004aad */
+  box-shadow: 0 4px 10px rgba(0, 74, 173, 0.15);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   max-width: 320px;
   margin: 0 auto;
+  position: relative; /* Asegurar contexto de posicionamiento */
+  overflow: hidden; /* Contener el badge dentro de la tarjeta */
 }
 
 /* Resaltar plan destacado */
 .plan-card.highlighted {
-  border-top: 4px solid #ffcc00; /* Borde superior amarillo */
+  border-top: 4px solid #ffcc00;
   box-shadow: 0 6px 15px rgba(255, 204, 0, 0.3);
 }
 
 /* Encabezado del plan */
 .plan-header {
   margin-bottom: 15px;
+  position: relative; /* Asegurar que el badge se posicione dentro del header */
+  z-index: 0; /* Bajo el badge */
 }
 
 .plan-title {
   font-size: 1.6rem;
   font-weight: 600;
-  color: #004aad; /* Azul del navbar */
+  color: #004aad;
   margin: 0;
+/*  margin-top: 20px;*/
 }
 
-.badge {
-  background: #ffcc00;
-  color: #1a1a1a;
-  padding: 5px 10px;
-  border-radius: 10px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  margin-top: 5px;
-  display: inline-block;
-}
+
 
 /* Contenedor de precio y contador */
 .plan-price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 20px;
 }
 
 .plan-price {
   font-size: 1.3rem;
   font-weight: 500;
-  color: #333333; /* Texto más oscuro */
+  color: #333333;
   margin: 10px 0;
 }
 
-/* Contador de profesionales */
 .professional-counter {
   display: flex;
   align-items: center;
@@ -89,7 +87,7 @@
 }
 
 .professional-counter button {
-  background: #ffcc00; /* Mismo color que los botones */
+  background: #ffcc00;
   border: none;
   border-radius: 50%;
   width: 30px;
@@ -102,7 +100,7 @@
 }
 
 .professional-counter button:hover {
-  background: #e6b800; /* Dorado más oscuro */
+  background: #e6b800;
 }
 
 .professional-counter span {
@@ -122,7 +120,7 @@
 /* Característica individual */
 .plan-feature {
   font-size: 1rem;
-  color: #333333; /* Texto más oscuro */
+  color: #333333;
   margin-bottom: 12px;
   display: flex;
   align-items: center;
@@ -136,18 +134,18 @@
   justify-content: center;
   width: 24px;
   height: 24px;
-  background: #c0d1f3; /* Fondo circular */
+  background: #c0d1f3;
   border-radius: 50%;
 }
 
 /* Íconos */
 .check-icon {
-  color: #28a745; /* Verde */
+  color: #28a745;
   font-size: 1.2rem;
 }
 
 .times-icon {
-  color: #dc3545; /* Rojo */
+  color: #dc3545;
   font-size: 1.2rem;
 }
 
@@ -155,15 +153,15 @@
 .strikethrough {
   text-decoration: line-through;
   color: #dc3545;
-  opacity: 0.7; /* Suavizar */
+  opacity: 0.7;
 }
 
 /* Botón */
 .plan-button {
   align-self: center;
   text-decoration: none;
-  background-color: #ffcc00; /* Amarillo del CTA */
-  color: #1a1a1a; /* Texto oscuro */
+  background-color: #ffcc00;
+  color: #1a1a1a;
   border: none;
   padding: 14px 28px;
   border-radius: 8px;
@@ -175,11 +173,17 @@
 }
 
 .plan-button:hover {
-  background-color: #e6b800; /* Dorado más oscuro */
+  background-color: #e6b800;
   box-shadow: 0 8px 20px rgba(230, 184, 0, 0.5);
 }
 
 /* Responsivo */
+@media (min-width: 1200px) {
+  .plan-title {
+  margin-top: 20px;
+}
+}
+
 @media (max-width: 1200px) {
   .plans-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -264,5 +268,54 @@
 
   .professional-counter span {
     font-size: 0.9rem;
+  }
+}
+
+/* Cinta de "Recomendado" en la esquina */
+.corner-ribbon {
+  position: absolute;
+  top: 22px;
+  right: -46px;              /* negativo para cruzar la esquina */
+  transform: rotate(45deg);
+  transform-origin: center;
+  background: #ffcc00;
+  color: #1a1a1a;
+  width: 170px;              /* ancho suficiente para cruzar el vértice */
+  padding: 8px 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 10px rgba(255, 204, 0, 0.35);
+  z-index: 5;                /* por encima de todo el contenido interno */
+  pointer-events: none;      /* no bloquea hovers/clicks de la tarjeta */
+  white-space: nowrap;
+}
+
+
+/* Responsivo */
+@media (max-width: 1200px) {
+  .corner-ribbon {
+    width: 160px;
+    right: -42px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .corner-ribbon {
+    width: 140px;
+    right: -38px;
+    top: 20px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .corner-ribbon {
+    width: 150px;
+    right: -32px;
+    top: 25px;
+    font-size: 0.75rem;
   }
 }

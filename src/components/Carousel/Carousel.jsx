@@ -93,17 +93,6 @@ function Carousel() {
           </motion.div>
         ))}
       </Slider>
-      <motion.a
-        href="#cta"
-        className="cta-button"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        Prueba ahora
-      </motion.a>
     </section>
   );
 }
